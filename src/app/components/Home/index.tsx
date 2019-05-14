@@ -2,9 +2,10 @@ import React from "react";
 import Title from "core/components/Title";
 
 const Home: React.FC = () => (
-  <div>
+  <>
     <Title title="Home" subtitle="The Home of NAMPI" />
-  </div>
+    <p>There is nothing here yet.</p>
+  </>
 );
 
 export default Home;
