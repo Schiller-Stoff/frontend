@@ -1,0 +1,9 @@
+@import "~bulma/bulma";
+
+.content {
+  padding: 1rem;
+
+  @include desktop-only {
+    padding: 3rem;
+  }
+}
