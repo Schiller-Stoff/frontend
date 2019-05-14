@@ -3,7 +3,7 @@
 .content {
   padding: 1rem;
 
-  @include desktop-only {
+  @include from($tablet) {
     padding: 3rem;
   }
 }
