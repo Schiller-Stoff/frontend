@@ -1,5 +1,5 @@
-import App from "app/components/App";
-import { InjectIntlContext } from "core/reactIntl";
+import App from "App/components/App";
+import { InjectIntlContext } from "Core/reactIntl";
 import React from "react";
 import ReactDOM from "react-dom";
 import { IntlProvider } from "react-intl";

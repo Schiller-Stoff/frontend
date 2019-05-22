@@ -1,4 +1,4 @@
-import { joinClasses } from "core/utils/joinClasses";
+import { joinClasses } from "Core/utils/joinClasses";
 
 test("Correctly join provided class names.", () => {
   const container = "container";

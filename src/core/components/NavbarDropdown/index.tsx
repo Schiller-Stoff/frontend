@@ -1,4 +1,4 @@
-import { MenuItem } from "core/types";
+import { MenuItem } from "Core/types";
 import React from "react";
 import NavbarLink from "../NavbarLink";
 

@@ -1,4 +1,4 @@
-import { Url } from "core/Url";
+import { Url } from "Core/Url";
 import React from "react";
 import { Link } from "react-router-dom";
 

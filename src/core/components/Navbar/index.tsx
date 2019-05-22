@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useFormatMessage } from "core/reactIntl";
-import { NavbarMenuContent } from "core/types";
-import { Url } from "core/Url";
+import { useFormatMessage } from "Core/reactIntl";
+import { NavbarMenuContent } from "Core/types";
+import { Url } from "Core/Url";
 import React, { useCallback, useState } from "react";
 import NavbarDropdown from "../NavbarDropdown";
 import NavbarLink from "../NavbarLink";
 import { messages } from "./messages";
-import { joinClasses } from "core/utils/joinClasses";
+import { joinClasses } from "Core/utils/joinClasses";
 import styles from "./styles.module.scss";
 
 interface Props {
