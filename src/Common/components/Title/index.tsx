@@ -1,5 +1,5 @@
 import React, { createElement } from "react";
-import { joinClasses } from "Core/utils/joinClasses";
+import { joinClasses } from "Common/utils/joinClasses";
 
 interface Props {
   level?: 1 | 2 | 3 | 4 | 5 | 6;

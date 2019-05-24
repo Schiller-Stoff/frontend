@@ -1,7 +1,7 @@
 import logo from "App/assets/images/logo.png";
-import Navbar from "Core/components/Navbar";
-import { history } from "Core/history";
-import { Url } from "Core/Url";
+import Navbar from "Common/components/Navbar";
+import { history } from "Common/history";
+import { Url } from "Common/Url";
 import React from "react";
 import { Route, Router, Switch } from "react-router";
 import Home from "../Home";

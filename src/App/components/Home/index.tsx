@@ -1,5 +1,5 @@
 import React from "react";
-import Title from "Core/components/Title";
+import Title from "Common/components/Title";
 
 const Home: React.FC = () => (
   <>

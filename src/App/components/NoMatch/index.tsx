@@ -1,10 +1,10 @@
 import React from "react";
-import Title from "Core/components/Title";
+import Title from "Common/components/Title";
 import { messages } from "./messages";
-import { useFormatMessage } from "Core/reactIntl";
+import { useFormatMessage } from "Common/reactIntl";
 import { FormattedMessage } from "react-intl";
 import { Link } from "react-router-dom";
-import { Url } from "Core/Url";
+import { Url } from "Common/Url";
 
 const NoMatch: React.FC = () => {
   const t = useFormatMessage();
