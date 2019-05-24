@@ -1,5 +1,7 @@
 import { Url } from "./Url";
 
-export type MenuItem = [Url, string];
+export type NavbarMenuContent = Array<NavbarMenuItem | [string, NavbarMenuItem[]]>;
 
-export type NavbarMenuContent = Array<MenuItem | [string, MenuItem[]]>;
+export type NavbarMenuItem = [Url, string];
+
+export type StringArray = Array<string | null | undefined>;

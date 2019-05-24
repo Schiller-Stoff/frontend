@@ -1,9 +1,9 @@
-import { MenuItem } from "Common/types";
+import { NavbarMenuItem } from "Common/types";
 import React from "react";
 import NavbarLink from "../NavbarLink";
 
 interface Props {
-  items: MenuItem[];
+  items: NavbarMenuItem[];
   title: string;
 }
 
