@@ -1,5 +1,7 @@
 import { useUserData } from "Data/hooks/useUserData";
 import React from "react";
+import { FormattedMessage } from "react-intl";
+import { messages } from "./messages";
 
 const Profile: React.FC = () => {
   const userData = useUserData();
@@ -7,8 +9,12 @@ const Profile: React.FC = () => {
     <div>
       {userData ? (
         <>
-          <div>name: {userData.username}</div>
-          <div>email: {userData.email}</div>
+          <div>
+            <FormattedMessage {...messages.name} />: {userData.username}
+          </div>
+          <div>
+            <FormattedMessage {...messages.email} />: {userData.email}
+          </div>
         </>
       ) : (
         "fake-spinner"
