@@ -5,6 +5,7 @@ import { Url } from "Common/Url";
 import React from "react";
 import { Route, Router, Switch } from "react-router";
 import Home from "../Home";
+import Profile from "../Profile";
 import styles from "./styles.module.scss";
 import NoMatch from "../NoMatch";
 
@@ -15,6 +16,7 @@ const App: React.FC = () => {
       <div className={styles.content}>
         <Switch>
           <Route exact path={Url.Home} component={Home} />
+          <Route path={Url.Profile} component={Profile} />
           <Route component={NoMatch} />
         </Switch>
       </div>
