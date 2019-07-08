@@ -2,6 +2,7 @@ import { useUserData } from "Data/hooks/useUserData";
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import { messages } from "./messages";
+import UserInfoBox from "Common/components/UserInfoBox/index";
 
 const Profile: React.FC = () => {
   const userData = useUserData();
@@ -13,7 +14,7 @@ const Profile: React.FC = () => {
         style={{ border: "1px solid lightgrey", height: "30vh", borderRadius: "10px" }}
       >
         <div className="column">
-          User XYZ like https://mariannegranum.files.wordpress.com/2011/12/newtwitterprofile.png ?
+          <UserInfoBox></UserInfoBox>
         </div>
       </div>
       <br></br>
