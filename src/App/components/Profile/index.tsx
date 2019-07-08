@@ -9,10 +9,7 @@ const Profile: React.FC = () => {
   return (
     <div className="container">
       <h1 className="title">User Profile</h1>
-      <div
-        className="columns"
-        style={{ border: "1px solid lightgrey", height: "30vh", borderRadius: "10px" }}
-      >
+      <div className="columns">
         <div className="column">
           <UserInfoBox></UserInfoBox>
         </div>
