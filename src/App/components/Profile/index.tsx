@@ -6,7 +6,36 @@ import { messages } from "./messages";
 const Profile: React.FC = () => {
   const userData = useUserData();
   return (
-    <div>
+    <div className="container">
+      <h1 className="title">User Profile</h1>
+      <div
+        className="columns"
+        style={{ border: "1px solid lightgrey", height: "30vh", borderRadius: "10px" }}
+      >
+        <div className="column">
+          User XYZ like https://mariannegranum.files.wordpress.com/2011/12/newtwitterprofile.png ?
+        </div>
+      </div>
+      <br></br>
+      <div className="columns" style={{ border: "1px solid lightgrey", borderRadius: "10px" }}>
+        <div className="column is-1" style={{ borderRight: "1px solid lightgrey", height: "50vh" }}>
+          User Profile Navigation / Icons etc.
+        </div>
+        <div className="column is-9" style={{ height: "50vh" }}>
+          User Information / Control -- Cards?
+        </div>
+        <div className="column" style={{ borderLeft: "1px solid lightgreen" }}>
+          Input / Explore / Display
+        </div>
+      </div>
+      <br></br>
+      <hr></hr>
+      <br></br>
+      <div className="columns" style={{ border: "1px solid lightgreen" }}>
+        <div className="column" style={{ border: "1px solid lightgreen" }}>
+          Input / Explore / Display
+        </div>
+      </div>
       {userData ? (
         <>
           <div>
