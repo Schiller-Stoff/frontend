@@ -1,0 +1,20 @@
+.imgContainer {
+  border: 0.25em solid lightgrey;
+  background-color: rgb(222, 241, 222);
+  width: 10em;
+  height: 10em;
+  margin: 2em auto 3em;
+  border-radius: 100em;
+}
+
+.shortInfo {
+  padding: 2em;
+  border-left: 2.5em solid rgb(222, 241, 222);
+  //border-bottom: .1em solid rgb(222, 241, 222);
+}
+
+.userInfoBoxColumn {
+  box-shadow: 0.1em 0.1em 0.5em 0.1em lightgray;
+  margin: 0.5em;
+  //border: .15em dotted lightgrey;
+}
