@@ -3,6 +3,7 @@ import React from "react";
 import { FormattedMessage } from "react-intl";
 import { messages } from "./messages";
 import UserInfoBox from "Common/components/UserInfoBox/index";
+import WidgetGrid from "Common/components/WidgetGrid/";
 import { joinClasses } from "Common/utils/joinClasses";
 import styles from "./styles.module.scss";
 
@@ -36,26 +37,7 @@ const Profile: React.FC = () => {
           </div>
           <br></br>
           <div className={joinClasses("columns", styles.profileCard)}>
-            <div
-              className="column is-1"
-              style={{ borderRight: "1px solid lightgrey", height: "50vh" }}
-            >
-              User Profile Navigation / Icons etc.
-            </div>
-            <div className="column is-9" style={{ height: "50vh" }}>
-              User Information / Control -- Cards?
-            </div>
-            <div className="column" style={{ borderLeft: "1px solid lightgreen" }}>
-              Input / Explore / Display
-            </div>
-          </div>
-          <br></br>
-          <hr></hr>
-          <br></br>
-          <div className="columns" style={{ border: "1px solid lightgreen" }}>
-            <div className="column" style={{ border: "1px solid lightgreen" }}>
-              Input / Explore / Display
-            </div>
+            <WidgetGrid></WidgetGrid>
           </div>
 
           <div>
