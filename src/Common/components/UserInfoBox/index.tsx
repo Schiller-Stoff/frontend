@@ -3,8 +3,8 @@ import styles from "./styles.module.scss";
 import { joinClasses } from "Common/utils/joinClasses";
 
 interface Props {
-  name?: string;
-  email?: string;
+  name: string;
+  email: string;
   org?: string;
 }
 
