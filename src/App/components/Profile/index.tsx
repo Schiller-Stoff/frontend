@@ -9,33 +9,38 @@ const Profile: React.FC = () => {
   return (
     <div className="container">
       <h1 className="title">User Profile</h1>
-      <div className="columns">
-        <div className="column">
-          <UserInfoBox></UserInfoBox>
-        </div>
-      </div>
-      <br></br>
-      <div className="columns" style={{ border: "1px solid lightgrey", borderRadius: "10px" }}>
-        <div className="column is-1" style={{ borderRight: "1px solid lightgrey", height: "50vh" }}>
-          User Profile Navigation / Icons etc.
-        </div>
-        <div className="column is-9" style={{ height: "50vh" }}>
-          User Information / Control -- Cards?
-        </div>
-        <div className="column" style={{ borderLeft: "1px solid lightgreen" }}>
-          Input / Explore / Display
-        </div>
-      </div>
-      <br></br>
-      <hr></hr>
-      <br></br>
-      <div className="columns" style={{ border: "1px solid lightgreen" }}>
-        <div className="column" style={{ border: "1px solid lightgreen" }}>
-          Input / Explore / Display
-        </div>
-      </div>
+
       {userData ? (
         <>
+          <div className="columns">
+            <div className="column">
+              <UserInfoBox name={userData.username} email={userData.email}></UserInfoBox>
+            </div>
+          </div>
+          <br></br>
+          <div className="columns" style={{ border: "1px solid lightgrey", borderRadius: "10px" }}>
+            <div
+              className="column is-1"
+              style={{ borderRight: "1px solid lightgrey", height: "50vh" }}
+            >
+              User Profile Navigation / Icons etc.
+            </div>
+            <div className="column is-9" style={{ height: "50vh" }}>
+              User Information / Control -- Cards?
+            </div>
+            <div className="column" style={{ borderLeft: "1px solid lightgreen" }}>
+              Input / Explore / Display
+            </div>
+          </div>
+          <br></br>
+          <hr></hr>
+          <br></br>
+          <div className="columns" style={{ border: "1px solid lightgreen" }}>
+            <div className="column" style={{ border: "1px solid lightgreen" }}>
+              Input / Explore / Display
+            </div>
+          </div>
+
           <div>
             <FormattedMessage {...messages.name} />: {userData.username}
           </div>
