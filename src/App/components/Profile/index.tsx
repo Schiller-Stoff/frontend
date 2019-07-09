@@ -36,7 +36,7 @@ const Profile: React.FC = () => {
             </div>
           </div>
           <br></br>
-          <div className={joinClasses("columns", styles.profileCard)}>
+          <div>
             <WidgetGrid></WidgetGrid>
           </div>
 
