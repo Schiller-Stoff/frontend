@@ -1,8 +1,7 @@
 .widgetCard {
-  box-shadow: 0.5em 0.5em 0.5em 0.1em lightgray;
-  border: 0.35em solid rgb(222, 241, 222);
-  padding: 1em;
-  background-color: white;
-  border-radius: 0.25em;
-  min-height: 20vh;
+  box-shadow: 0.1em 0.1em 0.25em 0.1em lightgray;
+  border: 1px solid lightgrey;
+  background-color: grey;
+  margin: 0 !important;
+  min-height: 15em;
 }

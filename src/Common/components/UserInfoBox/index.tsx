@@ -14,8 +14,8 @@ const UserInfoBox: React.FC<Props> = ({
 }) => {
   return (
     <div>
-      <div className={styles.imgContainer}></div>
-      <hr></hr>
+      {/* <div className={styles.imgContainer}></div> */}
+      {/* <hr></hr> */}
       <div className={styles.shortInfo}>
         <h4>Account Info</h4>
         <p>Name: {name}</p>
