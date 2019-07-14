@@ -14,11 +14,11 @@ const WidgetCard: React.FC<Props> = ({
   backgrColor = "",
   children = null
 }) => {
-  const [dragElem, setDragElem] = useState(null);
+  const [dragElem, setDragElem] = useState<HTMLElement | undefined>(undefined);
 
   const dragStartHandler = (event: any) => {
     console.log("%cdrag started", "color:blue; margin:5px; border-bottom: 2px dashed blue");
-    let target: HTMLElement | any = event.target;
+    let target: HTMLElement = event.target;
     if (target === null) return;
 
     setDragElem(target);
@@ -26,12 +26,16 @@ const WidgetCard: React.FC<Props> = ({
 
   const dragHandler = (event: any) => {
     console.log("%cdragging", "color:blue; margin:5px; border-bottom: 2px dashed blue");
-    let target: HTMLElement | any = dragElem;
-    if (target === null) return;
+    console.log(dragElem);
+    console.log(event.clientX);
+    console.log(event.clientY);
+    if (!dragElem) return;
 
-    target.style.position = "absolute";
-    target.style.left = event.clientX;
-    target.style.top = event.clientY;
+    dragElem.style.position = "fixed";
+    dragElem.style.left = event.clientX + "px";
+    dragElem.style.top = event.clientY + "px";
+
+    //dragElem.style.transform = "translate3d(" + event.clientX/4 + "px, " + event.clientY/4 + "px, 0)"
   };
 
   const dragEndHandler = () => {
@@ -42,7 +46,7 @@ const WidgetCard: React.FC<Props> = ({
     <div
       draggable
       onDragStart={dragStartHandler}
-      onDragOver={dragHandler}
+      onDrag={dragHandler}
       //onDrop={dragEndHandler}
       onDragEnd={dragEndHandler}
       className={joinClasses(styles.widgetCard, ...classes, "column")}
