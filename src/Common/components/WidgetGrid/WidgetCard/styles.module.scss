@@ -2,6 +2,15 @@
   box-shadow: 0.1em 0.1em 0.25em 0.1em lightgray;
   border: 1px solid lightgrey;
   background-color: grey;
-  margin: 0 !important;
+  //margin: .1em;
   min-height: 15em;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  &:hover {
+    cursor: pointer;
+    border: 10px solid whitesmoke;
+    box-shadow: none;
+    z-index: 1;
+    //background-color: lightgoldenrodyellow;
+    //transform: scale(1.05);
+  }
 }
