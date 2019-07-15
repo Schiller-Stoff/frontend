@@ -15,31 +15,39 @@ const WidgetCard: React.FC<Props> = ({
   children = null
 }) => {
   const [dragElem, setDragElem] = useState<HTMLElement | undefined>(undefined);
+  const [dragWidth, setDragWidth] = useState<number | undefined>(undefined);
+  const [dragHeight, setDragHeight] = useState<number | undefined>(undefined);
 
   const dragStartHandler = (event: any) => {
-    console.log("%cdrag started", "color:blue; margin:5px; border-bottom: 2px dashed blue");
+    console.debug("%cdrag started", "color:blue; margin:5px; border-bottom: 2px dashed blue");
     let target: HTMLElement = event.target;
-    if (target === null) return;
+    if (!target) return;
+
+    // disabling the default drag image.
+    let dragIcon = document.createElement("img");
+    dragIcon.src = "ghost.png";
+    dragIcon.width = 100;
+    event.dataTransfer.setDragImage(dragIcon, -10, -10);
 
     setDragElem(target);
+    let boundingRect = target.getBoundingClientRect();
+    setDragWidth(boundingRect.width);
+    setDragHeight(boundingRect.height);
   };
 
   const dragHandler = (event: any) => {
-    console.log("%cdragging", "color:blue; margin:5px; border-bottom: 2px dashed blue");
-    console.log(dragElem);
-    console.log(event.clientX);
-    console.log(event.clientY);
+    console.debug("%cdragging", "color:blue; margin:5px; border-bottom: 2px dashed blue");
     if (!dragElem) return;
 
     dragElem.style.position = "fixed";
-    dragElem.style.left = event.clientX + "px";
-    dragElem.style.top = event.clientY + "px";
 
-    //dragElem.style.transform = "translate3d(" + event.clientX/4 + "px, " + event.clientY/4 + "px, 0)"
+    if (!dragWidth || !dragHeight) return;
+    dragElem.style.left = event.clientX - dragWidth / 2 + "px";
+    dragElem.style.top = event.clientY - dragHeight / 2 + "px";
   };
 
   const dragEndHandler = () => {
-    console.log("%cdrag ended", "color:blue; margin:5px; border-bottom: 2px dashed blue");
+    console.debug("%cdrag ended", "color:blue; margin:5px; border-bottom: 2px dashed blue");
   };
 
   return (
