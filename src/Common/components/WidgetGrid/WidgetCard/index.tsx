@@ -33,6 +33,11 @@ const WidgetCard: React.FC<Props> = ({
     let boundingRect = target.getBoundingClientRect();
     setDragWidth(boundingRect.width);
     setDragHeight(boundingRect.height);
+
+    //needs to be deleted again when finished.
+    target.style.width = boundingRect.width + "px";
+    target.style.height = boundingRect.height + "px";
+    target.style.zIndex = "100";
   };
 
   const dragHandler = (event: any) => {
@@ -51,16 +56,18 @@ const WidgetCard: React.FC<Props> = ({
   };
 
   return (
-    <div
-      draggable
-      onDragStart={dragStartHandler}
-      onDrag={dragHandler}
-      //onDrop={dragEndHandler}
-      onDragEnd={dragEndHandler}
-      className={joinClasses(styles.widgetCard, ...classes, "column")}
-      style={{ backgroundColor: backgrColor, visibility: visible ? "initial" : "hidden" }}
-    >
-      {children}
+    <div className={joinClasses(...classes, "column", styles.cardContainer)}>
+      <div
+        draggable
+        onDragStart={dragStartHandler}
+        onDrag={dragHandler}
+        //onDrop={dragEndHandler}
+        onDragEnd={dragEndHandler}
+        className={joinClasses(styles.widgetCard)}
+        style={{ backgroundColor: backgrColor, visibility: visible ? "initial" : "hidden" }}
+      >
+        {children}
+      </div>
     </div>
   );
 };

@@ -1,4 +1,14 @@
+.cardContainer {
+  padding: 0 !important;
+}
+
 .widgetCard {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
   box-shadow: 0.1em 0.1em 0.25em 0.1em lightgray;
   border: 1px solid lightgrey;
   background-color: grey;
