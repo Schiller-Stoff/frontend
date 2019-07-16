@@ -57,10 +57,34 @@ const WidgetCard: React.FC<Props> = ({
     console.debug("%cdrag ended", "color:blue; margin:5px; border-bottom: 2px dashed blue");
     if (!dragElem) return;
 
-    let dropTarget: HTMLElement = event.target;
+    let x = event.clientX;
+    let y = event.clientY;
+
+    let dropTarget = document.elementFromPoint(x, y);
+
+    if (!dropTarget) return;
+
+    try {
+      dropTarget = recFindParent(dropTarget, "column") as Element;
+    } catch {
+      console.debug(`No dropable element found inside dragEndHandler`);
+      return;
+    }
 
     //logging targets order number
-    console.log(dropTarget.attributes.getNamedItem("data-order-number"));
+    console.log(dropTarget.children[0].getAttribute("data-order-number"));
+  };
+
+  const recFindParent = (elem: Element, className: string): Element | ErrorEvent => {
+    if (elem.classList.contains(className)) return elem;
+
+    let parent: HTMLElement | null = elem.parentElement;
+    if (!parent)
+      throw new ErrorEvent(
+        `Can't find parent element with classname ${className}. Last checked elem: ${{ ...elem }}`
+      );
+
+    return recFindParent(parent, className);
   };
 
   return (
@@ -71,6 +95,7 @@ const WidgetCard: React.FC<Props> = ({
         onDrag={dragHandler}
         //onDrop={dragEndHandler}
         //ondDragEnter={}
+        //onDragEnd={dragEndHandler}
         onDragEnd={dragEndHandler}
         className={joinClasses(styles.widgetCard)}
         style={{ backgroundColor: backgrColor, visibility: visible ? "initial" : "hidden" }}
