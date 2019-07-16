@@ -71,8 +71,11 @@ const WidgetCard: React.FC<Props> = ({
       return;
     }
 
-    //logging targets order number
-    console.log(dropTarget.children[0].getAttribute("data-order-number"));
+    //getting targets and sources orderNumber
+    //let targetInd = dropTarget.children[0].getAttribute("data-order-number");
+    //let dragInd = dragElem.getAttribute("data-order-number");
+
+    //if(changeOrder)changeOrder(dragInd, targetInd);
   };
 
   const recFindParent = (elem: Element, className: string): Element | ErrorEvent => {
