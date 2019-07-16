@@ -6,13 +6,15 @@ interface Props {
   classes?: Array<string>;
   backgrColor?: string;
   visible?: boolean;
+  orderNumber?: number;
 }
 
 const WidgetCard: React.FC<Props> = ({
   visible = true,
   classes = [""],
   backgrColor = "",
-  children = null
+  children = null,
+  orderNumber = null
 }) => {
   const [dragElem, setDragElem] = useState<HTMLElement | undefined>(undefined);
   const [dragWidth, setDragWidth] = useState<number | undefined>(undefined);
