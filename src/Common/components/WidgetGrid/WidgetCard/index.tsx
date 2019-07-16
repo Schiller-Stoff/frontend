@@ -53,8 +53,14 @@ const WidgetCard: React.FC<Props> = ({
     dragElem.style.top = event.clientY - dragHeight / 2 + "px";
   };
 
-  const dragEndHandler = () => {
+  const dragEndHandler = (event: any) => {
     console.debug("%cdrag ended", "color:blue; margin:5px; border-bottom: 2px dashed blue");
+    if (!dragElem) return;
+
+    let dropTarget: HTMLElement = event.target;
+
+    //logging targets order number
+    console.log(dropTarget.attributes.getNamedItem("data-order-number"));
   };
 
   return (
@@ -64,9 +70,11 @@ const WidgetCard: React.FC<Props> = ({
         onDragStart={dragStartHandler}
         onDrag={dragHandler}
         //onDrop={dragEndHandler}
+        //ondDragEnter={}
         onDragEnd={dragEndHandler}
         className={joinClasses(styles.widgetCard)}
         style={{ backgroundColor: backgrColor, visibility: visible ? "initial" : "hidden" }}
+        data-order-number={orderNumber}
       >
         {children}
       </div>
