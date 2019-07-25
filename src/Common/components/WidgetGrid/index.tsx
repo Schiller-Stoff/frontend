@@ -36,14 +36,15 @@ const WidgetGrid: React.FC = () => {
       key: 0,
       classes: ["is-4"],
       orderNumber: 0,
-      children: <UserInfoBox email="test" name="test" />
+      children: <UserInfoBox email="test" name="test" />,
+      backgrColor: "white"
     },
-    { key: 1, classes: ["is-8"], orderNumber: 1, backgrColor: "orange" },
-    { key: 2, classes: ["is-2"], orderNumber: 2 },
-    { key: 3, classes: ["is-5"], orderNumber: 3, backgrColor: "orange" },
-    { key: 4, classes: ["is-5"], orderNumber: 4 },
-    { key: 5, classes: ["is-5"], orderNumber: 5, visible: false },
-    { key: 6, classes: ["is-3"], orderNumber: 6 }
+    { key: 1, classes: ["is-8"], orderNumber: 1, backgrColor: "white" },
+    { key: 2, classes: ["is-2"], orderNumber: 2, backgrColor: "white" },
+    { key: 3, classes: ["is-5"], orderNumber: 3, backgrColor: "white" },
+    { key: 4, classes: ["is-5"], orderNumber: 4, backgrColor: "white" },
+    { key: 5, classes: ["is-5"], orderNumber: 5, visible: false, backgrColor: "white" },
+    { key: 6, classes: ["is-3"], orderNumber: 6, backgrColor: "white" }
   ]);
 
   return (
