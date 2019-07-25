@@ -7,6 +7,7 @@ interface Props {
   backgrColor?: string;
   visible?: boolean;
   orderNumber?: number;
+  flipCard?: Function;
 }
 
 const WidgetCard: React.FC<Props> = ({
@@ -14,7 +15,8 @@ const WidgetCard: React.FC<Props> = ({
   classes = [""],
   backgrColor = "",
   children = null,
-  orderNumber = null
+  orderNumber = null,
+  flipCard = undefined
 }) => {
   const [dragElem, setDragElem] = useState<HTMLElement | undefined>(undefined);
   const [dragWidth, setDragWidth] = useState<number | undefined>(undefined);
@@ -71,11 +73,20 @@ const WidgetCard: React.FC<Props> = ({
       return;
     }
 
-    //getting targets and sources orderNumber
-    //let targetInd = dropTarget.children[0].getAttribute("data-order-number");
-    //let dragInd = dragElem.getAttribute("data-order-number");
+    //from here on need to call function that changes the order!
 
-    //if(changeOrder)changeOrder(dragInd, targetInd);
+    //getting targets and sources orderNumber
+    let targetInd = dropTarget.children[0].getAttribute("data-order-number");
+    let dragInd = dragElem.getAttribute("data-order-number");
+
+    if (flipCard) flipCard(dragInd, targetInd);
+
+    dragElem.style.position = "";
+    dragElem.style.top = "";
+    dragElem.style.left = "";
+    dragElem.style.width = "";
+    dragElem.style.height = "";
+    dragElem.style.zIndex = "";
   };
 
   const recFindParent = (elem: Element, className: string): Element | ErrorEvent => {

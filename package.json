@@ -45,7 +45,7 @@
       "pre-commit": "lint-staged"
     }
   },
-   "eslintConfig": {
+  "eslintConfig": {
     "extends": "react-app"
   },
   "browserslist": {
