@@ -22,6 +22,16 @@ const WidgetCard: React.FC<Props> = ({
   const [dragWidth, setDragWidth] = useState<number | undefined>(undefined);
   const [dragHeight, setDragHeight] = useState<number | undefined>(undefined);
 
+  const restoreCss = (elem: HTMLElement): HTMLElement => {
+    elem.style.position = "";
+    elem.style.top = "";
+    elem.style.left = "";
+    elem.style.width = "";
+    elem.style.height = "";
+    elem.style.zIndex = "";
+    return elem;
+  };
+
   const dragStartHandler = (event: any) => {
     console.debug("%cdrag started", "color:blue; margin:5px; border-bottom: 2px dashed blue");
     let target: HTMLElement = event.target;
@@ -70,23 +80,23 @@ const WidgetCard: React.FC<Props> = ({
       dropTarget = recFindParent(dropTarget, "column") as Element;
     } catch {
       console.debug(`No dropable element found inside dragEndHandler`);
+      restoreCss(dragElem);
       return;
     }
-
-    //from here on need to call function that changes the order!
 
     //getting targets and sources orderNumber
     let targetInd = dropTarget.children[0].getAttribute("data-order-number");
     let dragInd = dragElem.getAttribute("data-order-number");
 
-    if (flipCard) flipCard(dragInd, targetInd);
+    if (!flipCard) return;
 
-    dragElem.style.position = "";
-    dragElem.style.top = "";
-    dragElem.style.left = "";
-    dragElem.style.width = "";
-    dragElem.style.height = "";
-    dragElem.style.zIndex = "";
+    try {
+      flipCard(dragInd, targetInd);
+    } catch {
+      console.debug("");
+    } finally {
+      restoreCss(dragElem);
+    }
   };
 
   const recFindParent = (elem: Element, className: string): Element | ErrorEvent => {
