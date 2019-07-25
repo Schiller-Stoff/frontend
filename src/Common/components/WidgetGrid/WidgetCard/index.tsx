@@ -21,6 +21,7 @@ const WidgetCard: React.FC<Props> = ({
   const [dragElem, setDragElem] = useState<HTMLElement | undefined>(undefined);
   const [dragWidth, setDragWidth] = useState<number | undefined>(undefined);
   const [dragHeight, setDragHeight] = useState<number | undefined>(undefined);
+  //const [dragOver, setDragOvered] = useState<HTMLElement | undefined>(undefined);
 
   const restoreCss = (elem: HTMLElement): HTMLElement => {
     elem.style.position = "";
@@ -99,6 +100,31 @@ const WidgetCard: React.FC<Props> = ({
     }
   };
 
+  /* const dragEnterHandler = (event: any) => {
+    let x = event.clientX;
+    let y = event.clientY;
+    let draggedOver = document.elementsFromPoint(x, y);
+
+    if (draggedOver.length > 0) {
+      for (let i = 0; i < draggedOver.length; i++) {
+        let child = draggedOver[i] as HTMLElement;
+        child.style.transition = "background-color .25s";
+
+        if (child.draggable && child !== event.target) {
+          setDragOvered(child);
+          child.style.backgroundColor = "red";
+        }
+      }
+    }
+  }; */
+
+  /* const dragLeaveHandler = (event: any) => {
+    if (!dragOver) return;
+    dragOver.style.transition = "";
+    dragOver.style.backgroundColor = "";
+    setDragOvered(undefined);
+  }; */
+
   const recFindParent = (elem: Element, className: string): Element | ErrorEvent => {
     if (elem.classList.contains(className)) return elem;
 
@@ -118,8 +144,10 @@ const WidgetCard: React.FC<Props> = ({
         onDragStart={dragStartHandler}
         onDrag={dragHandler}
         //onDrop={dragEndHandler}
-        //ondDragEnter={}
-        //onDragEnd={dragEndHandler}
+
+        //onDragOver={dragEnterHandler}
+        //onDragLeave={dragLeaveHandler}
+
         onDragEnd={dragEndHandler}
         className={joinClasses(styles.widgetCard)}
         style={{ backgroundColor: backgrColor, visibility: visible ? "initial" : "hidden" }}
