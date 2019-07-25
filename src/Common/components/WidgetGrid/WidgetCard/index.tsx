@@ -8,6 +8,8 @@ interface Props {
   visible?: boolean;
   orderNumber?: number;
   flipCard?: Function;
+  frontContent?: JSX.Element | HTMLElement;
+  backContent?: JSX.Element | HTMLElement;
 }
 
 const WidgetCard: React.FC<Props> = ({
@@ -16,7 +18,9 @@ const WidgetCard: React.FC<Props> = ({
   backgrColor = "",
   children = null,
   orderNumber = null,
-  flipCard = undefined
+  flipCard = undefined,
+  frontContent = null,
+  backContent = null
 }) => {
   const [dragElem, setDragElem] = useState<HTMLElement | undefined>(undefined);
   const [dragWidth, setDragWidth] = useState<number | undefined>(undefined);
@@ -149,11 +153,14 @@ const WidgetCard: React.FC<Props> = ({
         //onDragLeave={dragLeaveHandler}
 
         onDragEnd={dragEndHandler}
-        className={joinClasses(styles.widgetCard)}
+        className={joinClasses(styles.widgetCard, styles["flip-card"])}
         style={{ backgroundColor: backgrColor, visibility: visible ? "initial" : "hidden" }}
         data-order-number={orderNumber}
       >
-        {children}
+        <div className={styles["flip-card-inner"]}>
+          <div className={styles["flip-card-front"]}>{frontContent}</div>
+          <div className={styles["flip-card-back"]}>{backContent}</div>
+        </div>
       </div>
     </div>
   );
