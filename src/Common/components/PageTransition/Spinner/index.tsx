@@ -4,9 +4,11 @@ import { joinClasses } from "Common/utils/joinClasses";
 
 const Spinner: React.FC = () => {
   return (
-    <div className={joinClasses(styles["lds-ripple"], "level")}>
-      <div></div>
-      <div></div>
+    <div className={styles.centralizer}>
+      <div className={joinClasses(styles["lds-ripple"], "level")}>
+        <div></div>
+        <div></div>
+      </div>
     </div>
   );
 };
