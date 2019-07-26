@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import WidgetCard from "./WidgetCard";
-//import WidgetControl from "./WidgetControl";
-import UserInfoBox from "../UserInfoBox";
 import styles from "./styles.module.scss";
 import { joinClasses } from "Common/utils/joinClasses";
 import { WidgetCardObj } from "Common/types";
@@ -11,65 +9,21 @@ interface Props {
 }
 
 const WidgetGrid: React.FC<Props> = ({
-  cardArray = [
-    {
-      key: 0,
-      classes: ["is-4"],
-      orderNumber: 0,
-      //children: <UserInfoBox email="test" name="test" />,
-      backgrColor: "white",
-      frontContent: <UserInfoBox email="test" name="test" />,
-      backContent: (
-        <>
-          <br></br>
-          <h2>Register Account</h2>
-          <hr></hr>
-          <p>Click here to add Content</p>
-        </>
-      )
-    },
-    {
-      key: 1,
-      classes: ["is-8"],
-      orderNumber: 1,
-      backgrColor: "#26547C",
-      frontContent: (
-        <div
-          style={{ textAlign: "left", paddingLeft: "2em", marginTop: "1em", color: "lightgrey" }}
-        >
-          <h4 style={{ color: "lightgrey" }}>My Recent Activities</h4>
-          <hr
-            style={{ borderColor: "#00D1B2", padding: ".125em", backgroundColor: "#00D1B2" }}
-          ></hr>
-          <ul>
-            <li>Searched for XYZ</li>
-            <li>Collected ABC</li>
-          </ul>
-        </div>
-      )
-    },
-    {
-      key: 2,
-      classes: ["is-2"],
-      orderNumber: 2,
-      backgrColor: "#EF476F",
-      frontContent: (
-        <div>
-          <h4 style={{ color: "whitesmoke", marginTop: "1em" }}>Example Heading</h4>
-        </div>
-      ),
-      backContent: (
-        <div>
-          <p style={{ color: "whitesmoke", margin: "3em" }}>Edit Heading via Click on the field.</p>
-        </div>
-      )
-    },
-    { key: 3, classes: ["is-5"], orderNumber: 3, backgrColor: "#26547C" },
-    { key: 4, classes: ["is-5"], orderNumber: 4, backgrColor: "#FFD166" },
-    { key: 5, classes: ["is-5"], orderNumber: 5, visible: false, backgrColor: "#FCFCFC" },
-    { key: 6, classes: ["is-3"], orderNumber: 6, backgrColor: "#EF476F" }
-  ]
+  cardArray = [{ key: 3, orderNumber: 3, noPropGiven: true }]
 }) => {
+  //dynamic import (of bigger default) when no prop was given.
+  //needs the useEffect Hook for only be run at mounting.
+  useEffect(() => {
+    if (cardArray[0].noPropGiven) {
+      import("./propDefault").then(module => {
+        console.warn(
+          "No prop was given to the WidgetGrid component. Importing and displaying default grid now..."
+        );
+        setWidgetCardArray(module.cardObjArray);
+      });
+    }
+  }, [cardArray]);
+
   const flipCardHandler = (dragInd: number, targetInd: number): void | ReferenceError => {
     console.debug("%c" + dragInd, "color:red;");
     console.debug("%c" + targetInd, "color:red;");
