@@ -10,6 +10,7 @@ export type WidgetCardObj = {
   classes?: Array<string>;
   backgrColor?: string;
   visible?: boolean;
+  key: number;
   orderNumber?: number;
   flipCard?: Function;
   frontContent?: JSX.Element | HTMLElement;
