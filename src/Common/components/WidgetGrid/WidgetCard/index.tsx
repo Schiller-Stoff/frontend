@@ -27,6 +27,8 @@ const WidgetCard: React.FC<Props> = ({
   const [dragHeight, setDragHeight] = useState<number | undefined>(undefined);
   //const [dragOver, setDragOvered] = useState<HTMLElement | undefined>(undefined);
 
+  const [animString, setAnimString] = useState<string>("animated once zoomIn");
+
   const restoreCss = (elem: HTMLElement): HTMLElement => {
     elem.style.position = "";
     elem.style.top = "";
@@ -141,8 +143,21 @@ const WidgetCard: React.FC<Props> = ({
     return recFindParent(parent, className);
   };
 
+  const randAnimStart = (): string => {
+    let rand = parseFloat(Math.random().toFixed(2)) - 0.4;
+    return rand > 0.01 ? `${rand}s` : `0.01s`;
+  };
+
+  // removes animation css causes bugs otherwise
+  setTimeout(() => {
+    setAnimString("");
+  }, 1000);
+
   return (
-    <div className={joinClasses(...classes, "column", styles.cardContainer)}>
+    <div
+      className={joinClasses(...classes, "column", styles.cardContainer, animString)}
+      style={{ animationDelay: randAnimStart(), animationDuration: ".25s" }}
+    >
       <div
         draggable
         onDragStart={dragStartHandler}

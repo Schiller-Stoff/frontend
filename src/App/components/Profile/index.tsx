@@ -13,16 +13,20 @@ const Profile: React.FC = () => {
     <div className="container">
       {userData ? (
         <>
-          <h3 className="title">User Profile</h3>
-          {/* <hr
+          <br></br>
+          <br></br>
+          <hr
             style={{
               borderColor: "lightgrey",
-              padding: ".25em",
+              backgroundColor: "lightgrey",
+              padding: ".35em",
               borderRadius: "5em",
-              width: "80%"
+              width: "25%"
             }}
-          ></hr> */}
+          ></hr>
           <br></br>
+          <h3 className="title">User Profile</h3>
+
           <div className="columns" style={{ border: "" }}>
             <div
               className={joinClasses("column is-1", styles.dummyStyle)}
@@ -38,14 +42,14 @@ const Profile: React.FC = () => {
               </ul>
             </div>
 
-            <div className={joinClasses("column is-10", styles.dummyStyle)}>
+            <div className={joinClasses("column is-11", styles.dummyStyle)}>
               <div className="container is-fluid">
                 <br></br>
                 <br></br>
                 <WidgetGrid></WidgetGrid>
               </div>
             </div>
-            <div
+            {/* <div
               className={joinClasses("column is-1", styles.dummyStyle)}
               style={{
                 backgroundColor: "",
@@ -53,7 +57,7 @@ const Profile: React.FC = () => {
                 border: "1px solid whitesmoke",
                 boxShadow: "0.1em 0.1em 0.25em 0.1em whitesmoke"
               }}
-            ></div>
+            ></div> */}
           </div>
 
           <div>
