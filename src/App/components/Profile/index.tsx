@@ -10,7 +10,7 @@ import { joinClasses } from "Common/utils/joinClasses";
 const Profile: React.FC = () => {
   const userData = useUserData();
   return (
-    <div className="container is-fluid">
+    <div className="container">
       {userData ? (
         <>
           <h3 className="title">User Profile</h3>
@@ -27,12 +27,7 @@ const Profile: React.FC = () => {
             <div
               className={joinClasses("column is-1", styles.dummyStyle)}
               style={{
-                padding: 0,
-                backgroundColor: "whitesmoke",
-                borderRight: "",
-                borderRadius: "",
-                border: "1px solid whitesmoke",
-                boxShadow: "0.1em 0.1em 0.25em 0.1em whitesmoke"
+                padding: 0
               }}
             >
               <ul className={joinClasses("list", styles.listDummyStyle)}>
@@ -43,7 +38,7 @@ const Profile: React.FC = () => {
               </ul>
             </div>
 
-            <div className={joinClasses("column is-9", styles.dummyStyle)}>
+            <div className={joinClasses("column is-10", styles.dummyStyle)}>
               <div className="container is-fluid">
                 <br></br>
                 <br></br>

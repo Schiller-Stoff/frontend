@@ -52,11 +52,15 @@ const WidgetGrid: React.FC = () => {
       key: 1,
       classes: ["is-8"],
       orderNumber: 1,
-      backgrColor: "white",
+      backgrColor: "#26547C",
       frontContent: (
-        <div style={{ textAlign: "left", paddingLeft: "2em", marginTop: ".5em" }}>
-          <h4>Recent Activities</h4>
-          <hr></hr>
+        <div
+          style={{ textAlign: "left", paddingLeft: "2em", marginTop: "1em", color: "lightgrey" }}
+        >
+          <h4 style={{ color: "lightgrey" }}>My Recent Activities</h4>
+          <hr
+            style={{ borderColor: "#00D1B2", padding: ".125em", backgroundColor: "#00D1B2" }}
+          ></hr>
           <ul>
             <li>Searched for XYZ</li>
             <li>Collected ABC</li>
@@ -64,11 +68,26 @@ const WidgetGrid: React.FC = () => {
         </div>
       )
     },
-    { key: 2, classes: ["is-2"], orderNumber: 2, backgrColor: "white" },
-    { key: 3, classes: ["is-5"], orderNumber: 3, backgrColor: "white" },
-    { key: 4, classes: ["is-5"], orderNumber: 4, backgrColor: "white" },
-    { key: 5, classes: ["is-5"], orderNumber: 5, visible: false, backgrColor: "white" },
-    { key: 6, classes: ["is-3"], orderNumber: 6, backgrColor: "white" }
+    {
+      key: 2,
+      classes: ["is-2"],
+      orderNumber: 2,
+      backgrColor: "#EF476F",
+      frontContent: (
+        <div>
+          <h4 style={{ color: "whitesmoke", marginTop: "1em" }}>Example Heading</h4>
+        </div>
+      ),
+      backContent: (
+        <div>
+          <p style={{ color: "whitesmoke", margin: "3em" }}>Edit Heading via Click on the field.</p>
+        </div>
+      )
+    },
+    { key: 3, classes: ["is-5"], orderNumber: 3, backgrColor: "#26547C" },
+    { key: 4, classes: ["is-5"], orderNumber: 4, backgrColor: "#FFD166" },
+    { key: 5, classes: ["is-5"], orderNumber: 5, visible: false, backgrColor: "#FCFCFC" },
+    { key: 6, classes: ["is-3"], orderNumber: 6, backgrColor: "#EF476F" }
   ]);
 
   return (
