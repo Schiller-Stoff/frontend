@@ -4,11 +4,16 @@ import WidgetCard from "./WidgetCard";
 import UserInfoBox from "../UserInfoBox";
 import styles from "./styles.module.scss";
 import { joinClasses } from "Common/utils/joinClasses";
+import { WidgetCardObj } from "Common/types";
+
+interface Props {
+  cardArray?: Array<WidgetCardObj>;
+}
 
 const WidgetGrid: React.FC = () => {
   const flipCardHandler = (dragInd: number, targetInd: number): void | ReferenceError => {
-    console.log("%c" + dragInd, "color:red;");
-    console.log("%c" + targetInd, "color:red;");
+    console.debug("%c" + dragInd, "color:red;");
+    console.debug("%c" + targetInd, "color:red;");
     if (dragInd === targetInd) throw new ReferenceError("Can't change position with itself.");
     if (!dragInd || !targetInd)
       throw new ReferenceError(
