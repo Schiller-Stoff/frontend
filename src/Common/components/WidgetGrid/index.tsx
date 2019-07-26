@@ -22,7 +22,8 @@ const WidgetGrid: React.FC<Props> = ({
         setWidgetCardArray(module.cardObjArray);
       });
     }
-  }, [cardArray]);
+    // eslint-disable-next-line
+  }, []);
 
   const flipCardHandler = (dragInd: number, targetInd: number): void | ReferenceError => {
     console.debug("%c" + dragInd, "color:red;");
