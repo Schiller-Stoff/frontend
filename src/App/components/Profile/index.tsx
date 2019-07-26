@@ -11,13 +11,18 @@ const Profile: React.FC = () => {
   const userData = useUserData();
   return (
     <div className="container is-fluid">
-      <h3 className="title">User Profile</h3>
-      <hr
-        style={{ borderColor: "lightgrey", padding: ".25em", borderRadius: "5em", width: "80%" }}
-      ></hr>
-      <br></br>
       {userData ? (
         <>
+          <h3 className="title">User Profile</h3>
+          {/* <hr
+            style={{
+              borderColor: "lightgrey",
+              padding: ".25em",
+              borderRadius: "5em",
+              width: "80%"
+            }}
+          ></hr> */}
+          <br></br>
           <div className="columns" style={{ border: "" }}>
             <div
               className={joinClasses("column is-1", styles.dummyStyle)}
@@ -46,8 +51,13 @@ const Profile: React.FC = () => {
               </div>
             </div>
             <div
-              className={joinClasses("column is-2", styles.dummyStyle)}
-              style={{ backgroundColor: "" }}
+              className={joinClasses("column is-1", styles.dummyStyle)}
+              style={{
+                backgroundColor: "",
+                marginTop: "8em",
+                border: "1px solid whitesmoke",
+                boxShadow: "0.1em 0.1em 0.25em 0.1em whitesmoke"
+              }}
             ></div>
           </div>
 
