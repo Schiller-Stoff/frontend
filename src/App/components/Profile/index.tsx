@@ -38,7 +38,7 @@ const Profile: React.FC = () => {
               </ul>
             </div>
 
-            <div className={joinClasses("column is-10", styles.dummyStyle)}>
+            <div className={joinClasses("column is-9", styles.dummyStyle)}>
               <div className="container is-fluid">
                 <br></br>
                 <br></br>
@@ -46,7 +46,7 @@ const Profile: React.FC = () => {
               </div>
             </div>
             <div
-              className={joinClasses("column is-1", styles.dummyStyle)}
+              className={joinClasses("column is-2", styles.dummyStyle)}
               style={{ backgroundColor: "" }}
             ></div>
           </div>
