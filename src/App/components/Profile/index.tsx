@@ -25,7 +25,9 @@ const Profile: React.FC = () => {
                 padding: 0,
                 backgroundColor: "whitesmoke",
                 borderRight: "",
-                borderRadius: ""
+                borderRadius: "",
+                border: "1px solid whitesmoke",
+                boxShadow: "0.1em 0.1em 0.25em 0.1em whitesmoke"
               }}
             >
               <ul className={joinClasses("list", styles.listDummyStyle)}>
@@ -45,7 +47,7 @@ const Profile: React.FC = () => {
             </div>
             <div
               className={joinClasses("column is-1", styles.dummyStyle)}
-              style={{ backgroundColor: "whitesmoke" }}
+              style={{ backgroundColor: "" }}
             ></div>
           </div>
 
