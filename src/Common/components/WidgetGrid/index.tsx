@@ -22,6 +22,7 @@ const WidgetGrid: React.FC<Props> = ({
         setWidgetCardArray(module.cardObjArray);
       });
     }
+    // eslint adds cardArray to empty array -> causes bad side effects
     // eslint-disable-next-line
   }, []);
 
