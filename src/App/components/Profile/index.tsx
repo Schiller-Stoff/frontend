@@ -4,16 +4,49 @@ import { FormattedMessage } from "react-intl";
 import { messages } from "./messages";
 import WidgetGrid from "Common/components/WidgetGrid/";
 import Spinner from "Common/components/PageTransition/Spinner";
+import styles from "./styles.module.scss";
+import { joinClasses } from "Common/utils/joinClasses";
 
 const Profile: React.FC = () => {
   const userData = useUserData();
   return (
-    <div className="container">
+    <div className="container is-fluid">
       <h3 className="title">User Profile</h3>
+      <hr
+        style={{ borderColor: "lightgrey", padding: ".25em", borderRadius: "5em", width: "80%" }}
+      ></hr>
+      <br></br>
       {userData ? (
         <>
-          <div>
-            <WidgetGrid></WidgetGrid>
+          <div className="columns" style={{ border: "" }}>
+            <div
+              className={joinClasses("column is-1", styles.dummyStyle)}
+              style={{
+                padding: 0,
+                backgroundColor: "whitesmoke",
+                borderRight: "",
+                borderRadius: ""
+              }}
+            >
+              <ul className={joinClasses("list", styles.listDummyStyle)}>
+                <li className={joinClasses("list-item", styles.liDummyStyle)}>Board</li>
+                <li className={joinClasses("list-item", styles.liDummyStyle)}>Personen</li>
+                <li className={joinClasses("list-item", styles.liDummyStyle)}>Geosuche</li>
+                <li className={joinClasses("list-item", styles.liDummyStyle)}>Datenkorb</li>
+              </ul>
+            </div>
+
+            <div className={joinClasses("column is-10", styles.dummyStyle)}>
+              <div className="container is-fluid">
+                <br></br>
+                <br></br>
+                <WidgetGrid></WidgetGrid>
+              </div>
+            </div>
+            <div
+              className={joinClasses("column is-1", styles.dummyStyle)}
+              style={{ backgroundColor: "whitesmoke" }}
+            ></div>
           </div>
 
           <div>
