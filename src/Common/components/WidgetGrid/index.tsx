@@ -10,33 +10,8 @@ interface Props {
   cardArray?: Array<WidgetCardObj>;
 }
 
-const WidgetGrid: React.FC = () => {
-  const flipCardHandler = (dragInd: number, targetInd: number): void | ReferenceError => {
-    console.debug("%c" + dragInd, "color:red;");
-    console.debug("%c" + targetInd, "color:red;");
-    if (dragInd === targetInd) throw new ReferenceError("Can't change position with itself.");
-    if (!dragInd || !targetInd)
-      throw new ReferenceError(
-        `Invalid drag or drop element. Dragged elems index is: ${dragInd}; target elems index: ${targetInd}`
-      );
-
-    let cardsCopy = [...widgetCardArray];
-    let dragCopy = { ...widgetCardArray[dragInd] };
-    let tarCopy = { ...widgetCardArray[targetInd] };
-
-    cardsCopy[targetInd] = dragCopy;
-    cardsCopy[dragInd] = tarCopy;
-
-    let curInd = 0;
-    for (let card of cardsCopy) {
-      card.orderNumber = curInd;
-      curInd++;
-    }
-
-    setWidgetCardArray(cardsCopy);
-  };
-
-  const [widgetCardArray, setWidgetCardArray] = useState([
+const WidgetGrid: React.FC<Props> = ({
+  cardArray = [
     {
       key: 0,
       classes: ["is-4"],
@@ -93,7 +68,34 @@ const WidgetGrid: React.FC = () => {
     { key: 4, classes: ["is-5"], orderNumber: 4, backgrColor: "#FFD166" },
     { key: 5, classes: ["is-5"], orderNumber: 5, visible: false, backgrColor: "#FCFCFC" },
     { key: 6, classes: ["is-3"], orderNumber: 6, backgrColor: "#EF476F" }
-  ]);
+  ]
+}) => {
+  const flipCardHandler = (dragInd: number, targetInd: number): void | ReferenceError => {
+    console.debug("%c" + dragInd, "color:red;");
+    console.debug("%c" + targetInd, "color:red;");
+    if (dragInd === targetInd) throw new ReferenceError("Can't change position with itself.");
+    if (!dragInd || !targetInd)
+      throw new ReferenceError(
+        `Invalid drag or drop element. Dragged elems index is: ${dragInd}; target elems index: ${targetInd}`
+      );
+
+    let cardsCopy = [...widgetCardArray];
+    let dragCopy = { ...widgetCardArray[dragInd] };
+    let tarCopy = { ...widgetCardArray[targetInd] };
+
+    cardsCopy[targetInd] = dragCopy;
+    cardsCopy[dragInd] = tarCopy;
+
+    let curInd = 0;
+    for (let card of cardsCopy) {
+      card.orderNumber = curInd;
+      curInd++;
+    }
+
+    setWidgetCardArray(cardsCopy);
+  };
+
+  const [widgetCardArray, setWidgetCardArray] = useState(cardArray);
 
   return (
     <>
