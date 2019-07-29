@@ -6,12 +6,13 @@ interface Props {
 }
 const DashBoard: React.FC<Props> = ({ userData = null }) => {
   const [widgetArray, setWidgetCardArray] = useState(null);
+  console.log(widgetArray, setWidgetCardArray);
 
   useEffect(() => {
     console.log("Dummy to to remember");
-    console.log(widgetArray, setWidgetCardArray);
+
     // change from default to received data from Profile
-  }, [userData, widgetArray]);
+  }, [userData]);
 
   // Default if no user-data is given --> can't be null / demanded by widget Array?
   // --> need to define default on my own here.
