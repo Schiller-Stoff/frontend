@@ -2,7 +2,7 @@ import { useUserData } from "Data/hooks/useUserData";
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import { messages } from "./messages";
-import WidgetGrid from "Common/components/WidgetGrid/";
+import DashBoard from "../DashBoard";
 import Spinner from "Common/components/PageTransition/Spinner";
 import styles from "./styles.module.scss";
 import { joinClasses } from "Common/utils/joinClasses";
@@ -46,7 +46,7 @@ const Profile: React.FC = () => {
               <div className="container is-fluid">
                 <br></br>
                 <br></br>
-                <WidgetGrid></WidgetGrid>
+                <DashBoard />
               </div>
             </div>
             {/* <div
