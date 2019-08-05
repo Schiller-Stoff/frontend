@@ -46,7 +46,7 @@ const Profile: React.FC = () => {
               <div className="container is-fluid">
                 <br></br>
                 <br></br>
-                <DashBoard />
+                <DashBoard userData={userData} />
               </div>
             </div>
             {/* <div
