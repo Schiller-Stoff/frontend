@@ -14,7 +14,7 @@ interface Props {
 
 const WidgetCard: React.FC<Props> = ({
   visible = true,
-  classes = [""],
+  classes = ["is-4"],
   backgrColor = "",
   children = null,
   orderNumber = null,
