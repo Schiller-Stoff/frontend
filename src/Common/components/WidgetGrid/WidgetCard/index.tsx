@@ -36,6 +36,8 @@ const WidgetCard: React.FC<Props> = ({
     elem.style.width = "";
     elem.style.height = "";
     elem.style.zIndex = "";
+    elem.style.transform = "";
+    elem.style.boxShadow = "";
     return elem;
   };
 
@@ -59,6 +61,8 @@ const WidgetCard: React.FC<Props> = ({
     target.style.width = boundingRect.width + "px";
     target.style.height = boundingRect.height + "px";
     target.style.zIndex = "100";
+    target.style.transform = "rotate(-10deg)";
+    target.style.boxShadow = "10px 10px 10px 1px lightgrey";
   };
 
   const dragHandler = (event: any) => {
