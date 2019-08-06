@@ -22,18 +22,19 @@ const DashBoard: React.FC<Props> = ({ userData = null }) => {
           <div>
             <hr />
             <h3>My Account</h3>
-            <p>Add more Details</p>
-          </div>
-        ),
-        backContent: (
-          <div>
-            <br></br>
             <p>
               <FormattedMessage {...messages.email} />: {userData.email}
             </p>
             <p>
               <FormattedMessage {...messages.name} />: {userData.username}
             </p>
+          </div>
+        ),
+        backContent: (
+          <div>
+            <br></br>
+            <br></br>
+            <p> Add more details </p>
           </div>
         ),
         backgrColor: "white"
