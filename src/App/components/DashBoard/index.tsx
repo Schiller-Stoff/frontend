@@ -3,6 +3,7 @@ import WidgetGrid from "Common/components/WidgetGrid";
 import { UserData } from "Data/types";
 import { WidgetCardObj } from "Common/types";
 import AccountCard from "./AccountCard";
+import RecentActivitiesCard from "./RecentActivitiesCard";
 
 interface Props {
   userData?: UserData;
@@ -20,21 +21,8 @@ const DashBoard: React.FC<Props> = ({
     },
     {
       key: 1,
-      frontContent: (
-        <div>
-          <br></br>
-          <br></br>
-          <h3>Recent Activities</h3>
-        </div>
-      ),
-      backContent: (
-        <div>
-          <br></br>
-          <ul>
-            <li>Searched for: XYZ</li>
-          </ul>
-        </div>
-      ),
+      frontContent: <RecentActivitiesCard displayFront={true} />,
+      backContent: <RecentActivitiesCard displayFront={false} />,
       classes: ["is-6"],
       backgrColor: "white"
     },
