@@ -15,7 +15,6 @@ const DashBoard: React.FC<Props> = ({
   const WIDGET_ARRAY_DEFAULT: Array<WidgetCardObj> = [
     {
       key: 0,
-      orderNumber: 0,
       frontContent: (
         <div>
           <hr />
@@ -39,7 +38,6 @@ const DashBoard: React.FC<Props> = ({
     },
     {
       key: 1,
-      orderNumber: 1,
       frontContent: (
         <div>
           <br></br>
@@ -60,7 +58,6 @@ const DashBoard: React.FC<Props> = ({
     },
     {
       key: 2,
-      orderNumber: 2,
       frontContent: <div></div>,
       backContent: <div></div>,
       classes: ["is-3"],
