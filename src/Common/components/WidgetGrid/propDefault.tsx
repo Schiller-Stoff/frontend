@@ -6,7 +6,6 @@ export const cardObjArray: Array<WidgetCardObj> = [
   {
     key: 0,
     classes: ["is-4"],
-    orderNumber: 0,
     //children: <UserInfoBox email="test" name="test" />,
     backgrColor: "white",
     frontContent: <UserInfoBox email="test" name="test" />,
@@ -22,7 +21,6 @@ export const cardObjArray: Array<WidgetCardObj> = [
   {
     key: 1,
     classes: ["is-8"],
-    orderNumber: 1,
     backgrColor: "#26547C",
     frontContent: (
       <div style={{ textAlign: "left", paddingLeft: "2em", marginTop: "1em", color: "lightgrey" }}>
@@ -38,7 +36,6 @@ export const cardObjArray: Array<WidgetCardObj> = [
   {
     key: 2,
     classes: ["is-2"],
-    orderNumber: 2,
     backgrColor: "#EF476F",
     frontContent: (
       <div>
@@ -51,8 +48,8 @@ export const cardObjArray: Array<WidgetCardObj> = [
       </div>
     )
   },
-  { key: 3, classes: ["is-5"], orderNumber: 3, backgrColor: "#26547C" },
-  { key: 4, classes: ["is-5"], orderNumber: 4, backgrColor: "#FFD166" },
-  { key: 5, classes: ["is-5"], orderNumber: 5, visible: false, backgrColor: "#FCFCFC" },
-  { key: 6, classes: ["is-3"], orderNumber: 6, backgrColor: "#EF476F" }
+  { key: 3, classes: ["is-5"], backgrColor: "#26547C" },
+  { key: 4, classes: ["is-5"], backgrColor: "#FFD166" },
+  { key: 5, classes: ["is-5"], visible: false, backgrColor: "#FCFCFC" },
+  { key: 6, classes: ["is-3"], backgrColor: "#EF476F" }
 ];
