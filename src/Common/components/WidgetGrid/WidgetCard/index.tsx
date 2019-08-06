@@ -38,6 +38,7 @@ const WidgetCard: React.FC<Props> = ({
     elem.style.zIndex = "";
     elem.style.transform = "";
     elem.style.boxShadow = "";
+    elem.style.visibility = "visible";
     return elem;
   };
 
@@ -72,8 +73,15 @@ const WidgetCard: React.FC<Props> = ({
     dragElem.style.position = "fixed";
 
     if (!dragWidth || !dragHeight) return;
-    dragElem.style.left = event.clientX - dragWidth / 2 + "px";
-    dragElem.style.top = event.clientY - dragHeight / 2 + "px";
+
+    let newLeft: number = event.clientX - dragWidth / 2;
+    let newTop: number = event.clientY - dragHeight / 2;
+
+    //dirty solution for animation drop stuttering.
+    if (newLeft <= 0 || newTop <= 0) dragElem.style.visibility = "hidden";
+
+    dragElem.style.left = newLeft + "px";
+    dragElem.style.top = newTop + "px";
   };
 
   const dragEndHandler = (event: any) => {
