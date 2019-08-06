@@ -78,7 +78,11 @@ const WidgetCard: React.FC<Props> = ({
     let newTop: number = event.clientY - dragHeight / 2;
 
     //dirty solution for animation drop stuttering.
-    if (newLeft <= 0 || newTop <= 0) dragElem.style.visibility = "hidden";
+    if (newLeft <= 0 || newTop <= 0) {
+      dragElem.style.visibility = "hidden";
+    } else {
+      dragElem.style.visibility = "visible";
+    }
 
     dragElem.style.left = newLeft + "px";
     dragElem.style.top = newTop + "px";
