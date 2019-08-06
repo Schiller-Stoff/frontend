@@ -33,10 +33,10 @@ const Profile: React.FC = () => {
               }}
             >
               <ul className={joinClasses("list", styles.listDummyStyle)}>
-                <li className={joinClasses("list-item", styles.liDummyStyle)}>Board</li>
-                <li className={joinClasses("list-item", styles.liDummyStyle)}>Personen</li>
-                <li className={joinClasses("list-item", styles.liDummyStyle)}>Geosuche</li>
-                <li className={joinClasses("list-item", styles.liDummyStyle)}>Datenkorb</li>
+                <li className={joinClasses("list-item", styles.liDummyStyle)}>Start</li>
+                <li className={joinClasses("list-item", styles.liDummyStyle)}>Logout</li>
+                <li className={joinClasses("list-item", styles.liDummyStyle)}>Help</li>
+                <li className={joinClasses("list-item", styles.liDummyStyle)}>About</li>
               </ul>
             </div>
 
