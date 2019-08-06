@@ -1,7 +1,5 @@
 import { useUserData } from "Data/hooks/useUserData";
 import React from "react";
-import { FormattedMessage } from "react-intl";
-import { messages } from "./messages";
 import DashBoard from "../DashBoard";
 import Spinner from "Common/components/PageTransition/Spinner";
 import styles from "./styles.module.scss";
@@ -58,13 +56,6 @@ const Profile: React.FC = () => {
                 boxShadow: "0.1em 0.1em 0.25em 0.1em whitesmoke"
               }}
             ></div> */}
-          </div>
-
-          <div>
-            <FormattedMessage {...messages.name} />: {userData.username}
-          </div>
-          <div>
-            <FormattedMessage {...messages.email} />: {userData.email}
           </div>
         </>
       ) : (
