@@ -16,9 +16,9 @@ const Profile: React.FC = () => {
           <hr
             style={{
               borderColor: "lightgrey",
-              backgroundColor: "lightgrey",
+              backgroundColor: "whitesmoke",
               padding: ".35em",
-              borderRadius: "5em",
+              borderRadius: "",
               width: "25%"
             }}
           ></hr>
@@ -47,7 +47,7 @@ const Profile: React.FC = () => {
                 <DashBoard userData={userData} />
               </div>
             </div>
-            <div
+            {/* <div
               className={joinClasses("column is-1", styles.dummyStyle)}
               style={{
                 backgroundColor: "",
@@ -56,7 +56,7 @@ const Profile: React.FC = () => {
                 borderRadius: ".5em",
                 boxShadow: "0.1em 0.1em 0.25em 0.1em lightgrey"
               }}
-            ></div>
+            ></div> */}
           </div>
         </>
       ) : (
