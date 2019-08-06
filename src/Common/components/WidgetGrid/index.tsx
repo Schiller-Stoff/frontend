@@ -8,7 +8,7 @@ interface Props {
   cardArray?: Array<WidgetCardObj> | null;
 }
 
-const WidgetGrid: React.FC<Props> = ({ cardArray = [{ key: 3, noPropGiven: true }] }) => {
+const WidgetGrid: React.FC<Props> = ({ cardArray = [{ key: 0, noPropGiven: true }] }) => {
   //dynamic import (of bigger default) when no prop was given.
   //needs the useEffect Hook for only be run at mounting.
   useEffect(() => {
