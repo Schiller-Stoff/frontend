@@ -47,15 +47,16 @@ const Profile: React.FC = () => {
                 <DashBoard userData={userData} />
               </div>
             </div>
-            {/* <div
+            <div
               className={joinClasses("column is-1", styles.dummyStyle)}
               style={{
                 backgroundColor: "",
                 marginTop: "8em",
-                border: "1px solid whitesmoke",
-                boxShadow: "0.1em 0.1em 0.25em 0.1em whitesmoke"
+                border: "1px solid lightgrey",
+                borderRadius: ".5em",
+                boxShadow: "0.1em 0.1em 0.25em 0.1em lightgrey"
               }}
-            ></div> */}
+            ></div>
           </div>
         </>
       ) : (
