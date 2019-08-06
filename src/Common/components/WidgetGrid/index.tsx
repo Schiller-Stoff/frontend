@@ -1,30 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import WidgetCard from "./WidgetCard";
 import styles from "./styles.module.scss";
 import { joinClasses } from "Common/utils/joinClasses";
 import { WidgetCardObj } from "Common/types";
 
 interface Props {
-  cardArray?: Array<WidgetCardObj> | null;
+  cardArray: Array<WidgetCardObj> | null;
 }
 
-const WidgetGrid: React.FC<Props> = ({ cardArray = [{ key: 0, noPropGiven: true }] }) => {
-  //dynamic import (of bigger default) when no prop was given.
-  //needs the useEffect Hook for only be run at mounting.
-  useEffect(() => {
-    if (!cardArray) return;
-    if (cardArray[0].noPropGiven) {
-      import("./propDefault").then(module => {
-        console.warn(
-          "No prop was given to the WidgetGrid component. Importing and displaying default grid now..."
-        );
-        setWidgetCardArray(module.cardObjArray);
-      });
-    }
-    // eslint adds cardArray to empty array -> causes bad side effects
-    // eslint-disable-next-line
-  }, []);
-
+const WidgetGrid: React.FC<Props> = ({ cardArray = [{ key: 0 }] }) => {
   const flipCardHandler = (dragInd: number, targetInd: number): void | ReferenceError => {
     if (!widgetCardArray) return;
     console.debug("%c" + dragInd, "color:red;");
