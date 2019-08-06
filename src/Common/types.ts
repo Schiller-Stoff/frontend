@@ -14,5 +14,4 @@ export type WidgetCardObj = {
   flipCard?: Function;
   frontContent?: JSX.Element | HTMLElement;
   backContent?: JSX.Element | HTMLElement;
-  noPropGiven?: Boolean;
 };
