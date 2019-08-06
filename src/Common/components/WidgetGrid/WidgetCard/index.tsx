@@ -29,6 +29,8 @@ const WidgetCard: React.FC<Props> = ({
 
   const [animString, setAnimString] = useState<string>("animated once zoomIn");
 
+  const [cardStyle, setCardStyle] = useState<{ backgrColor: string; color: string } | null>(null);
+
   const restoreCss = (elem: HTMLElement): HTMLElement => {
     elem.style.position = "";
     elem.style.top = "";
@@ -64,6 +66,19 @@ const WidgetCard: React.FC<Props> = ({
     target.style.zIndex = "100";
     target.style.transform = "rotate(-10deg)";
     target.style.boxShadow = "10px 10px 10px 1px lightgrey";
+  };
+
+  const stylePresets: Array<{ backgrColor: string; color: string }> = [
+    { backgrColor: "#26547C", color: "whitesmoke" },
+    { backgrColor: "#FFD166", color: "black" },
+    { backgrColor: "#FCFCFC", color: "black" },
+    { backgrColor: "#EF476F", color: "whitesmoke" }
+  ];
+
+  const switchColor = () => {
+    if (!cardStyle) return setCardStyle(stylePresets[0]);
+    let curColInd = stylePresets.map(preset => preset.backgrColor).indexOf(cardStyle.backgrColor);
+    return setCardStyle(stylePresets[curColInd + 1]);
   };
 
   const dragHandler = (event: any) => {
@@ -184,12 +199,29 @@ const WidgetCard: React.FC<Props> = ({
 
         onDragEnd={dragEndHandler}
         className={joinClasses(styles.widgetCard, styles["flip-card"])}
-        style={{ backgroundColor: backgrColor, visibility: visible ? "initial" : "hidden" }}
+        style={{
+          backgroundColor: cardStyle ? cardStyle.backgrColor : backgrColor,
+          color: cardStyle ? cardStyle.color : "",
+          visibility: visible ? "initial" : "hidden"
+        }}
         data-order-number={orderNumber}
       >
         <div className={styles["flip-card-inner"]}>
-          <div className={styles["flip-card-front"]}>{frontContent}</div>
-          <div className={styles["flip-card-back"]}>{backContent}</div>
+          <div
+            className={styles["flip-card-front"]}
+            style={{ color: cardStyle ? cardStyle.color : "" }}
+          >
+            {frontContent}
+          </div>
+          <div
+            className={styles["flip-card-back"]}
+            style={{ color: cardStyle ? cardStyle.color : "" }}
+          >
+            <button onClick={switchColor} className="button" style={{ float: "right" }}>
+              ...
+            </button>
+            {backContent}
+          </div>
         </div>
       </div>
     </div>
