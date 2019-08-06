@@ -58,10 +58,7 @@ const WidgetGrid: React.FC<Props> = ({
   return (
     <>
       <div className={joinClasses("columns", styles.widgetGrid)}>
-        <div
-          className="column"
-          style={{ width: "5000px" } /*TODO: Remove hardcoded style value! */}
-        >
+        <div className="column">
           <div className="columns is-multiline is-mobile">
             {widgetCardArray
               ? widgetCardArray.map(card => {
