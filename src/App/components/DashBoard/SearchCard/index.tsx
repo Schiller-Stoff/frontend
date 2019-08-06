@@ -9,7 +9,7 @@ const SearchCard: React.FC<Props> = ({ displayFront }) => {
     <div>
       <br />
       <br></br>
-      <i className="fas fa-search" style={{ fontSize: "7em", color: "lightgrey" }}></i>{" "}
+      <i className="fas fa-search" style={{ fontSize: "7em", color: "#EF476F" }}></i>{" "}
       {/*TODO: Remove inline style */}
       <br></br>
       <p>Perform Search</p>

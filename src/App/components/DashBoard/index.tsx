@@ -32,14 +32,14 @@ const DashBoard: React.FC<Props> = ({
       key: 2,
       frontContent: <SearchCard displayFront={true} />,
       backContent: <SearchCard displayFront={false} />,
-      classes: ["is-10"],
+      classes: ["is-6"],
       backgrColor: "white"
     },
     {
       key: 3,
       frontContent: <AddDataCard displayFront={true} />,
       backContent: <AddDataCard displayFront={false} />,
-      classes: ["is-6"],
+      classes: ["is-4"],
       backgrColor: "white"
     }
   ];

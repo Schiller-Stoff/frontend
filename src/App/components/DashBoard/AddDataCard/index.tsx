@@ -9,7 +9,7 @@ const AddDataCard: React.FC<Props> = ({ displayFront }) => {
     <div>
       <br />
       <br></br>
-      <i className="fas fa-database" style={{ fontSize: "7em", color: "lightgrey" }}></i>{" "}
+      <i className="fas fa-database" style={{ fontSize: "7em", color: "#26547C" }}></i>{" "}
       {/*TODO: Remove inline style */}
       <br></br>
       <p>Add Data</p>
