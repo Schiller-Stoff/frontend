@@ -8,7 +8,7 @@ interface Props {
   cardArray: Array<WidgetCardObj> | null;
 }
 
-const WidgetGrid: React.FC<Props> = ({ cardArray = [{ key: 0 }] }) => {
+const WidgetGrid: React.FC<Props> = ({ cardArray }) => {
   const flipCardHandler = (dragInd: number, targetInd: number): void | ReferenceError => {
     if (!widgetCardArray) return;
     console.debug("%c" + dragInd, "color:red;");
