@@ -11,7 +11,6 @@ export type WidgetCardObj = {
   backgrColor?: string;
   visible?: boolean;
   key: number;
-  flipCard?: Function;
   frontContent?: JSX.Element | HTMLElement;
   backContent?: JSX.Element | HTMLElement;
 };
