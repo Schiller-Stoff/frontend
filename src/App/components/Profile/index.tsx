@@ -24,6 +24,7 @@ const Profile: React.FC = () => {
           ></hr>
           <br></br>
           <h3 className="title">User Profile</h3>
+          <br></br>
 
           <div className="columns" style={{ border: "" }}>
             <div

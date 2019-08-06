@@ -14,6 +14,13 @@
   border-right: none;
 }
 
-.listDummyStyle {
+.listDummyStyle li {
   padding: 0.5em;
+  font-weight: 600;
+  transition: all 0.15s linear;
+  &:hover {
+    border-left: 4em solid #00d1b2;
+    font-weight: 700;
+    cursor: pointer;
+  }
 }
