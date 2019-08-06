@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { messages } from "./messages";
 import WidgetGrid from "Common/components/WidgetGrid";
 import { UserData } from "Data/types";
 import { WidgetCardObj } from "Common/types";
-import { FormattedMessage } from "react-intl";
+import AccountCard from "./AccountCard";
 
 interface Props {
   userData?: UserData;
@@ -15,25 +14,8 @@ const DashBoard: React.FC<Props> = ({
   const WIDGET_ARRAY_DEFAULT: Array<WidgetCardObj> = [
     {
       key: 0,
-      frontContent: (
-        <div>
-          <hr />
-          <h3>My Account</h3>
-          <p>
-            <FormattedMessage {...messages.email} />: {userData.email}
-          </p>
-          <p>
-            <FormattedMessage {...messages.name} />: {userData.username}
-          </p>
-        </div>
-      ),
-      backContent: (
-        <div>
-          <br></br>
-          <br></br>
-          <p> Add more details </p>
-        </div>
-      ),
+      frontContent: <AccountCard userData={userData} displayFront={true}></AccountCard>,
+      backContent: <AccountCard userData={userData} displayFront={false}></AccountCard>,
       backgrColor: "white"
     },
     {
