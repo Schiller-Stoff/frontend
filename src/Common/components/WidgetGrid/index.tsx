@@ -8,9 +8,7 @@ interface Props {
   cardArray?: Array<WidgetCardObj> | null;
 }
 
-const WidgetGrid: React.FC<Props> = ({
-  cardArray = [{ key: 3, orderNumber: 3, noPropGiven: true }]
-}) => {
+const WidgetGrid: React.FC<Props> = ({ cardArray = [{ key: 3, noPropGiven: true }] }) => {
   //dynamic import (of bigger default) when no prop was given.
   //needs the useEffect Hook for only be run at mounting.
   useEffect(() => {
@@ -44,12 +42,6 @@ const WidgetGrid: React.FC<Props> = ({
     cardsCopy[targetInd] = dragCopy;
     cardsCopy[dragInd] = tarCopy;
 
-    let curInd = 0;
-    for (let card of cardsCopy) {
-      card.orderNumber = curInd;
-      curInd++;
-    }
-
     setWidgetCardArray(cardsCopy);
   };
 
@@ -61,7 +53,7 @@ const WidgetGrid: React.FC<Props> = ({
         <div className="column">
           <div className="columns is-multiline is-mobile">
             {widgetCardArray
-              ? widgetCardArray.map(card => {
+              ? widgetCardArray.map((card, ind) => {
                   return (
                     <WidgetCard
                       frontContent={card.frontContent}
@@ -70,7 +62,7 @@ const WidgetGrid: React.FC<Props> = ({
                       key={card.key}
                       classes={card.classes}
                       visible={card.visible || card.visible === undefined}
-                      orderNumber={card.orderNumber}
+                      orderNumber={ind}
                       backgrColor={card.backgrColor}
                     ></WidgetCard>
                   );
