@@ -13,7 +13,8 @@ const AccountCard: React.FC<Props> = ({ userData, displayFront }) => {
     <div>
       <br />
       <br></br>
-      <i className="fas fa-user-circle" style={{ fontSize: "7em", color: "lightgrey" }}></i>
+      <i className="fas fa-user-circle" style={{ fontSize: "7em", color: "lightgrey" }}></i>{" "}
+      {/*TODO: Remove inline style */}
       <br></br>
       <p>Account Settings</p>
     </div>

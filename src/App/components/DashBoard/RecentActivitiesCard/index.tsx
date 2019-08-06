@@ -9,7 +9,8 @@ const RecentActivitiesCard: React.FC<Props> = ({ displayFront }) => {
     <div>
       <br></br>
       <br></br>
-      <i className="fas fa-clipboard-list" style={{ fontSize: "7em", color: "lightgrey" }}></i>
+      <i className="fas fa-clipboard-list" style={{ fontSize: "7em", color: "lightgrey" }}></i>{" "}
+      {/*TODO:Remove inline style! */}
       <br></br>
       <p>Recent Activities</p>
     </div>
