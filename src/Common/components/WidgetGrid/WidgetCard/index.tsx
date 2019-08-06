@@ -3,13 +3,13 @@ import styles from "./styles.module.scss";
 import { joinClasses } from "Common/utils/joinClasses";
 
 interface Props {
+  orderNumber: number;
+  flipCard: Function;
   classes?: Array<string>;
   backgrColor?: string;
   visible?: boolean;
-  orderNumber?: number;
-  flipCard?: Function;
-  frontContent?: JSX.Element | HTMLElement;
-  backContent?: JSX.Element | HTMLElement;
+  frontContent?: JSX.Element | HTMLElement | null;
+  backContent?: JSX.Element | HTMLElement | null;
 }
 
 const WidgetCard: React.FC<Props> = ({
@@ -17,8 +17,8 @@ const WidgetCard: React.FC<Props> = ({
   classes = ["is-4"],
   backgrColor = "",
   children = null,
-  orderNumber = null,
-  flipCard = undefined,
+  orderNumber,
+  flipCard,
   frontContent = null,
   backContent = null
 }) => {
@@ -94,8 +94,6 @@ const WidgetCard: React.FC<Props> = ({
     //getting targets and sources orderNumber
     let targetInd = dropTarget.children[0].getAttribute("data-order-number");
     let dragInd = dragElem.getAttribute("data-order-number");
-
-    if (!flipCard) return;
 
     try {
       flipCard(dragInd, targetInd);
