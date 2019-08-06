@@ -5,6 +5,7 @@ import { WidgetCardObj } from "Common/types";
 import AccountCard from "./AccountCard";
 import RecentActivitiesCard from "./RecentActivitiesCard";
 import SearchCard from "./SearchCard";
+import AddDataCard from "./AddDataCard";
 
 interface Props {
   userData?: UserData;
@@ -32,6 +33,13 @@ const DashBoard: React.FC<Props> = ({
       frontContent: <SearchCard displayFront={true} />,
       backContent: <SearchCard displayFront={false} />,
       classes: ["is-10"],
+      backgrColor: "white"
+    },
+    {
+      key: 3,
+      frontContent: <AddDataCard displayFront={true} />,
+      backContent: <AddDataCard displayFront={false} />,
+      classes: ["is-6"],
       backgrColor: "white"
     }
   ];
