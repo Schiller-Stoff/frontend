@@ -15,7 +15,17 @@ const SearchCard: React.FC<Props> = ({ displayFront }) => {
       <p>Perform Search</p>
     </div>
   ) : (
-    <div></div>
+    <div>
+      <br></br>
+      <br></br>
+      <p>Search for person:</p>
+      <input
+        className="input"
+        type="text"
+        placeholder="Text input"
+        style={{ width: "50%" }}
+      ></input>
+    </div>
   );
 };
 
