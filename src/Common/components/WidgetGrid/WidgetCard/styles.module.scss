@@ -12,7 +12,6 @@
   box-shadow: 0.1em 0.1em 0.25em 0.1em lightgray;
   border: 1px solid lightgrey;
   background-color: grey;
-  //margin: .1em;
   min-height: 15em;
   transition: border 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   &:hover {
@@ -20,14 +19,7 @@
     border: 10px solid whitesmoke;
     box-shadow: none;
     z-index: 1;
-    //background-color: lightgoldenrodyellow;
-    //transform: scale(1.025);
   }
-}
-
-.flip-card {
-  //for displaying stronger card turn effect
-  //perspective: 1000px;
 }
 
 .flip-card-inner {
@@ -37,7 +29,6 @@
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  //box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
@@ -52,12 +43,10 @@
 }
 
 .flip-card-front {
-  //background-color: #bbb;
   color: black;
 }
 
 .flip-card-back {
-  //background-color: whitesmoke;
   border-bottom: rgb(222, 241, 222) 1em solid;
   color: black;
   transform: rotateY(180deg);
