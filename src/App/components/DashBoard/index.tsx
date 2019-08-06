@@ -39,7 +39,7 @@ const DashBoard: React.FC<Props> = ({ userData = null }) => {
         ),
         backgrColor: "white"
       };
-      cardArray.push(card);
+      cardArray.unshift(card); //first is userData.
       setWidgetCardArray(cardArray);
     }
   }, [userData]);
