@@ -11,20 +11,23 @@ interface Props {
 const AccountCard: React.FC<Props> = ({ userData, displayFront }) => {
   return displayFront ? (
     <div>
-      <hr />
-      <h3>My Account</h3>
+      <br />
+      <i className="fas fa-user-circle" style={{ fontSize: "7em", color: "lightgrey" }}></i>
+      <br></br>
+      <br></br>
+      <p>Account Settings</p>
+    </div>
+  ) : (
+    <div>
+      <br></br>
       <p>
         <FormattedMessage {...messages.email} />: {userData.email}
       </p>
       <p>
         <FormattedMessage {...messages.name} />: {userData.username}
       </p>
-    </div>
-  ) : (
-    <div>
-      <br></br>
-      <br></br>
-      <p> Add more details </p>
+      <hr></hr>
+      <p> Click to add more details </p>
     </div>
   );
 };
