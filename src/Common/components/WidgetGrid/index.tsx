@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import WidgetCard from "./WidgetCard";
-import styles from "./styles.module.scss";
 import { joinClasses } from "Common/utils/joinClasses";
 import { WidgetCardObj } from "Common/types";
 
@@ -33,7 +32,7 @@ const WidgetGrid: React.FC<Props> = ({ cardArray }) => {
 
   return (
     <>
-      <div className={joinClasses("columns", styles.widgetGrid)}>
+      <div className={joinClasses("columns")}>
         <div className="column">
           <div className="columns is-multiline is-mobile">
             {widgetCardArray
