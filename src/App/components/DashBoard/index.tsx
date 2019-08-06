@@ -17,9 +17,9 @@ const DashBoard: React.FC<Props> = ({
   const WIDGET_ARRAY_DEFAULT: Array<WidgetCardObj> = [
     {
       key: 0,
-      frontContent: <SearchCard displayFront={true} />,
-      backContent: <SearchCard displayFront={false} />,
-      classes: ["is-6"],
+      frontContent: <AccountCard userData={userData} displayFront={true}></AccountCard>,
+      backContent: <AccountCard userData={userData} displayFront={false}></AccountCard>,
+      classes: ["is-3"],
       backgrColor: "white"
     },
     {
@@ -31,9 +31,9 @@ const DashBoard: React.FC<Props> = ({
     },
     {
       key: 2,
-      frontContent: <AccountCard userData={userData} displayFront={true}></AccountCard>,
-      backContent: <AccountCard userData={userData} displayFront={false}></AccountCard>,
-      classes: ["is-3"],
+      frontContent: <SearchCard displayFront={true} />,
+      backContent: <SearchCard displayFront={false} />,
+      classes: ["is-6"],
       backgrColor: "white"
     },
     {
