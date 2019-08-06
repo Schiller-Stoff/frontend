@@ -85,12 +85,16 @@ const WidgetCard: React.FC<Props> = ({
 
     let dropTarget = document.elementFromPoint(x, y);
 
-    if (!dropTarget) return;
+    if (dragElem === dropTarget) return restoreCss(dragElem);
+    if (!dropTarget) return restoreCss(dragElem);
 
     try {
+      dragElem.style.visibility = "hidden"; // visibility change hinders ugly stuttering.
       dropTarget = recFindParent(dropTarget, "column") as Element;
+      dragElem.style.visibility = "visible";
     } catch {
       console.debug(`No dropable element found inside dragEndHandler`);
+      dragElem.style.visibility = "visible";
       restoreCss(dragElem);
       return;
     }
@@ -100,10 +104,12 @@ const WidgetCard: React.FC<Props> = ({
     let dragInd = dragElem.getAttribute("data-order-number");
 
     try {
+      dragElem.style.visibility = "hidden";
       flipCard(dragInd, targetInd);
     } catch {
-      console.debug("");
+      console.debug("flipCard failed");
     } finally {
+      dragElem.style.visibility = "visible";
       restoreCss(dragElem);
     }
   };
