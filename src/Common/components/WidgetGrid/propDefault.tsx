@@ -1,14 +1,12 @@
 import React from "react";
-import UserInfoBox from "../UserInfoBox";
 import { WidgetCardObj } from "Common/types";
 
 export const cardObjArray: Array<WidgetCardObj> = [
   {
     key: 0,
     classes: ["is-4"],
-    //children: <UserInfoBox email="test" name="test" />,
     backgrColor: "white",
-    frontContent: <UserInfoBox email="test" name="test" />,
+    frontContent: <p>Test</p>,
     backContent: (
       <>
         <br></br>
