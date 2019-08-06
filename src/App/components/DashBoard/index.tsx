@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { messages } from "./messages";
 import WidgetGrid from "Common/components/WidgetGrid";
 import { UserData } from "Data/types";
@@ -9,44 +9,69 @@ interface Props {
   userData?: UserData;
 }
 
-//TODO: Default from DashBoard should of Course not be null!
-const DashBoard: React.FC<Props> = ({ userData = null }) => {
-  const [widgetArray, setWidgetCardArray] = useState<Array<WidgetCardObj> | null>(null);
-
-  useEffect(() => {
-    if (userData) {
-      let cardArray: Array<WidgetCardObj> = []; //not a deep copy?
-      let card: WidgetCardObj = {
-        key: 0,
-        frontContent: (
-          <div>
-            <hr />
-            <h3>My Account</h3>
-            <p>
-              <FormattedMessage {...messages.email} />: {userData.email}
-            </p>
-            <p>
-              <FormattedMessage {...messages.name} />: {userData.username}
-            </p>
-          </div>
-        ),
-        backContent: (
-          <div>
-            <br></br>
-            <br></br>
-            <p> Add more details </p>
-          </div>
-        ),
-        backgrColor: "white"
-      };
-      cardArray.unshift(card); //first is userData.
-      setWidgetCardArray(cardArray);
+const DashBoard: React.FC<Props> = ({
+  userData = { email: "Could be your Email", username: "Could be your username" }
+}) => {
+  const WIDGET_ARRAY_DEFAULT: Array<WidgetCardObj> = [
+    {
+      key: 0,
+      orderNumber: 0,
+      frontContent: (
+        <div>
+          <hr />
+          <h3>My Account</h3>
+          <p>
+            <FormattedMessage {...messages.email} />: {userData.email}
+          </p>
+          <p>
+            <FormattedMessage {...messages.name} />: {userData.username}
+          </p>
+        </div>
+      ),
+      backContent: (
+        <div>
+          <br></br>
+          <br></br>
+          <p> Add more details </p>
+        </div>
+      ),
+      backgrColor: "white"
+    },
+    {
+      key: 1,
+      orderNumber: 1,
+      frontContent: (
+        <div>
+          <br></br>
+          <br></br>
+          <h3>Recent Activities</h3>
+        </div>
+      ),
+      backContent: (
+        <div>
+          <br></br>
+          <ul>
+            <li>Searched for: XYZ</li>
+          </ul>
+        </div>
+      ),
+      classes: ["is-6"],
+      backgrColor: "white"
+    },
+    {
+      key: 2,
+      orderNumber: 2,
+      frontContent: <div></div>,
+      backContent: <div></div>,
+      classes: ["is-3"],
+      backgrColor: "white"
     }
-  }, [userData]);
+  ];
 
-  //TODO:
-  // Default if no user-data is given --> can't be null / demanded by widget Array?
-  // --> need to define default on my own here
+  const [widgetArray, setWidgetCardArray] = useState<Array<WidgetCardObj> | null>(
+    WIDGET_ARRAY_DEFAULT
+  );
+  console.log(setWidgetCardArray);
 
   return widgetArray ? <WidgetGrid cardArray={widgetArray} /> : null;
 };
