@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./styles.module.scss";
 import { joinClasses } from "Common/utils/joinClasses";
+import { StandardLonghandProperties } from "csstype";
 
 interface Props {
   orderNumber: number;
@@ -29,7 +30,18 @@ const WidgetCard: React.FC<Props> = ({
 
   const [animString, setAnimString] = useState<string>("animated once zoomIn");
 
-  const [cardStyle, setCardStyle] = useState<{ backgrColor: string; color: string } | null>(null);
+  const [cardStyle, setCardStyle] = useState<{
+    backgrColor: string;
+    color?: string;
+    zIndex?: number;
+    left?: string;
+    top?: string;
+    width?: string;
+    height?: string;
+    position?: StandardLonghandProperties["position"];
+  }>({
+    backgrColor: backgrColor
+  });
 
   const restoreCss = (elem: HTMLElement): HTMLElement => {
     elem.style.position = "";
@@ -178,6 +190,36 @@ const WidgetCard: React.FC<Props> = ({
     return rand > 0.01 ? `${rand}s` : `0.01s`;
   };
 
+  const toggleSize = () => {
+    let copy = { ...cardStyle };
+    let zIndex;
+    try {
+      zIndex = copy.zIndex;
+    } catch {
+      return;
+    }
+
+    if (zIndex === 1324) {
+      console.log("reset card");
+      copy.left = undefined;
+      copy.top = undefined;
+      copy.position = undefined;
+      copy.width = undefined;
+      copy.height = undefined;
+      copy.zIndex = undefined;
+      setCardStyle(copy);
+    } else {
+      copy.left = "75%";
+      copy.top = "75%";
+      copy.position = "fixed";
+      copy.width = "10%";
+      copy.height = "5%";
+      copy.zIndex = 1324;
+
+      setCardStyle(copy);
+    }
+  };
+
   // removes animation css causes bugs otherwise
   setTimeout(() => {
     setAnimString("");
@@ -189,6 +231,7 @@ const WidgetCard: React.FC<Props> = ({
       style={{ animationDelay: randAnimStart(), animationDuration: ".25s" }}
     >
       <div
+        onClick={toggleSize}
         draggable
         onDragStart={dragStartHandler}
         onDrag={dragHandler}
@@ -202,7 +245,15 @@ const WidgetCard: React.FC<Props> = ({
         style={{
           backgroundColor: cardStyle ? cardStyle.backgrColor : backgrColor,
           color: cardStyle ? cardStyle.color : "",
-          visibility: visible ? "initial" : "hidden"
+          visibility: visible ? "initial" : "hidden",
+
+          //needed for card resize in click.
+          position: cardStyle.position ? cardStyle.position : undefined,
+          left: cardStyle.left ? cardStyle.left : undefined,
+          top: cardStyle.top ? cardStyle.top : undefined,
+          width: cardStyle.width ? cardStyle.width : undefined,
+          height: cardStyle.height ? cardStyle.height : undefined,
+          zIndex: cardStyle.zIndex ? cardStyle.zIndex : undefined
         }}
         data-order-number={orderNumber}
       >
