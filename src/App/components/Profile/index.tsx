@@ -43,8 +43,10 @@ const Profile: React.FC = () => {
 
             <div className={joinClasses("column is-10", styles.dummyStyle)}>
               <div className="container is-fluid">
-                <br></br>
-                <br></br>
+                <h6>
+                  Hello <em style={{ color: "#EF476F" }}>{userData.username}</em>!
+                </h6>
+                <p>What do you want to do?</p>
                 <DashBoard userData={userData} />
               </div>
             </div>

@@ -19,7 +19,7 @@ const DashBoard: React.FC<Props> = ({
       key: 0,
       frontContent: <AccountCard userData={userData} displayFront={true}></AccountCard>,
       backContent: <AccountCard userData={userData} displayFront={false}></AccountCard>,
-      classes: ["is-3"],
+      classes: ["is-4"],
       backgrColor: "white"
     },
     {
