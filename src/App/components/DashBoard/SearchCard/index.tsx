@@ -8,8 +8,7 @@ const SearchCard: React.FC<Props> = ({ displayFront }) => {
   return displayFront ? (
     <div>
       <br />
-      <br></br>
-      <i className="fas fa-search" style={{ fontSize: "7em", color: "#EF476F" }}></i>{" "}
+      <i className="fas fa-search" style={{ fontSize: "4em", color: "#EF476F" }}></i>{" "}
       {/*TODO: Remove inline style */}
       <br></br>
       <p>Perform Search</p>
@@ -17,14 +16,7 @@ const SearchCard: React.FC<Props> = ({ displayFront }) => {
   ) : (
     <div>
       <br></br>
-      <br></br>
-      <p>Search for person:</p>
-      <input
-        className="input"
-        type="text"
-        placeholder="Text input"
-        style={{ width: "50%" }}
-      ></input>
+      <input className="input" type="text" placeholder="Person" style={{ width: "50%" }}></input>
     </div>
   );
 };

@@ -12,8 +12,7 @@ const AccountCard: React.FC<Props> = ({ userData, displayFront }) => {
   return displayFront ? (
     <div>
       <br />
-      <br></br>
-      <i className="fas fa-user-circle" style={{ fontSize: "7em", color: "lightgrey" }}></i>{" "}
+      <i className="fas fa-user-circle" style={{ fontSize: "4em", color: "lightgrey" }}></i>{" "}
       {/*TODO: Remove inline style */}
       <br></br>
       <p>Account Settings</p>
@@ -27,8 +26,6 @@ const AccountCard: React.FC<Props> = ({ userData, displayFront }) => {
       <p>
         <FormattedMessage {...messages.name} />: {userData.username}
       </p>
-      <hr></hr>
-      <p> Click to add more details </p>
     </div>
   );
 };
