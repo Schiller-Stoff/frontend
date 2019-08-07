@@ -41,7 +41,7 @@ const Profile: React.FC = () => {
               </ul>
             </div>
 
-            <div className={joinClasses("column is-11", styles.dummyStyle)}>
+            <div className={joinClasses("column is-10", styles.dummyStyle)}>
               <div className="container is-fluid">
                 <br></br>
                 <br></br>
