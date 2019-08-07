@@ -6,6 +6,7 @@ import AccountCard from "./AccountCard";
 import RecentActivitiesCard from "./RecentActivitiesCard";
 import SearchCard from "./SearchCard";
 import AddDataCard from "./AddDataCard";
+import SettingsCard from "./SettingsCard";
 
 interface Props {
   userData?: UserData;
@@ -40,6 +41,13 @@ const DashBoard: React.FC<Props> = ({
       key: 3,
       frontContent: <RecentActivitiesCard displayFront={true} />,
       backContent: <RecentActivitiesCard displayFront={false} />,
+      classes: ["is-4"],
+      backgrColor: "white"
+    },
+    {
+      key: 4,
+      frontContent: <SettingsCard displayFront={true} />,
+      backContent: <SettingsCard displayFront={false} />,
       classes: ["is-3"],
       backgrColor: "white"
     }
