@@ -53,7 +53,7 @@ const DashBoard: React.FC<Props> = ({
       backgrColor: "white"
     },
     {
-      key: 4,
+      key: 5,
       frontContent: <ExploreCard displayFront={true} />,
       backContent: <ExploreCard displayFront={false} />,
       classes: ["is-10"],
